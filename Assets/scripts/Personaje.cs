@@ -32,19 +32,30 @@ public class Personaje : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D micolision)
     {
-        if (micolision.gameObject.name != "Moneda")
+ 
+        if (micolision.gameObject.name == "Moneda")
         {
-            fuenteDeAudio.clip = Golpe;
-            fuenteDeAudio.Play();
-            escena.Perdiste();
-        }
+                ScoreManager.SetCoins(1);
+                Puntaje.aa_puntaje++;
+                fuenteDeAudio.clip = punto;
+                fuenteDeAudio.Play();
+                Destroy(micolision.gameObject);
+         }
         else
         {
-            Puntaje.aa_puntaje++;
-            fuenteDeAudio.clip = punto;
-            fuenteDeAudio.Play();
-            Destroy(micolision.gameObject);
+                fuenteDeAudio.clip = Golpe;
+                fuenteDeAudio.Play();
+                escena.Perdiste();        
         }
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "AreaPuntaje")
+        {
+            Puntaje.distan++;
+        }
+        
+    }
+
 }
