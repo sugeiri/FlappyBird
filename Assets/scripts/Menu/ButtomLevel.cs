@@ -100,6 +100,9 @@ public class ButtomLevel : MonoBehaviour
     void JugarNivel()
     {
 
+        
         SceneManager.LoadScene(nombre_nivel);
+        
+        
     }
 }
