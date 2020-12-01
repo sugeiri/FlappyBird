@@ -23,6 +23,16 @@ public class ButtomLevel : MonoBehaviour
 
     void Start()
     {
+        if (nombre_nivel == "Principal") 
+        {
+            bloqueado = false;//si es true, el nivel esta bloqueado
+            ScoreManager.SetUnlockNivel(nombre_nivel, false);//se guarda que el nivel esta bloqueado
+            Fondo.color = colorDesbloqueado;
+            textoMoneda.text = "";
+            candado.SetActive(false);
+        }
+
+
         PlayerPrefs.SetInt("Coins", 100);
         int str = PlayerPrefs.GetInt(nombre_nivel,0);
         Debug.Log("nivel: "+ nombre_nivel + " null?: " + PlayerPrefs.HasKey(nombre_nivel));
