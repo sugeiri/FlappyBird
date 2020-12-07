@@ -11,6 +11,7 @@ public class Personaje : MonoBehaviour
     AudioSource fuenteDeAudio;
     public AudioClip punto;
     public AudioClip Golpe;
+   // public AudioClip swing;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,9 @@ public class Personaje : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space)||Input.GetMouseButtonDown(0))
         {
             rb.velocity = Vector2.up * velocidad;
+            
+            //fuenteDeAudio.clip = swing;
+            //fuenteDeAudio.Play();
         }
        
 

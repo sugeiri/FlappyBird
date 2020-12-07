@@ -19,7 +19,8 @@ public class ButtomLevel : MonoBehaviour
     public Color colorBloqueado;
     public Color colorDesbloqueado;
 
-
+    [Header("Configuracion de Alerta")]
+    public VentanaAlerta ventana;
 
     void Start()
     {
@@ -73,6 +74,7 @@ public class ButtomLevel : MonoBehaviour
 
     public void TocarBoton()
     {
+       // mnSonido.SwipeSonido();
         if (bloqueado)//si el nivel esta bloqueado
         {
             ComprarNivel();
@@ -83,23 +85,42 @@ public class ButtomLevel : MonoBehaviour
         }
     }
 
-    void ComprarNivel()
+    public void ComprarNivel()
     {
         if(ScoreManager.GetCoins()>= costo)
         {
-            bloqueado = false;
-            ScoreManager.SetUnlockNivel(nombre_nivel, bloqueado);
-            ScoreManager.SetCoins(-costo);
-            Fondo.color = colorDesbloqueado;
-            textoMoneda.text = "";
-            candado.SetActive(false);
-            PlayerPrefs.Save();
+            VentanaAlerta.Show("Quieres desbloquear el nivel?", TieneMonedas);
+
         }
+        else
+        {
+            VentanaAlerta.Show("No tienes monedas suficientes", NotieneMonedas);
+
+        }
+    }
+
+    public void TieneMonedas()
+    {
+        bloqueado = false;
+        ScoreManager.SetUnlockNivel(nombre_nivel, bloqueado);
+        ScoreManager.SetCoins(-costo);
+        Fondo.color = colorDesbloqueado;
+        textoMoneda.text = "";
+        candado.SetActive(false);
+        PlayerPrefs.Save();
+    }
+
+    public void NotieneMonedas()
+    {
 
     }
+    
     void JugarNivel()
     {
 
+        
         SceneManager.LoadScene(nombre_nivel);
+        
+        
     }
 }
