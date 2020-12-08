@@ -20,7 +20,7 @@ public class Menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(textoMonedas.text != ScoreManager.GetCoins().ToString())
+        if (textoMonedas.text != ScoreManager.GetCoins().ToString())
         {
             textoMonedas.text = ScoreManager.GetCoins().ToString();
         }

@@ -7,10 +7,7 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-
-
-
-    public static void SetHighScore(string nivel,int score)
+    public static void SetHighScore(string nivel, int score)
     {
         if (score > PlayerPrefs.GetInt(nivel, 0))
         {
@@ -20,9 +17,9 @@ public class ScoreManager : MonoBehaviour
 
     public static void SetCoins(int score)
     {
-        
-        int coin= PlayerPrefs.GetInt("Coins", 0);
-        PlayerPrefs.SetInt("Coins", coin+ score);
+
+        int coin = PlayerPrefs.GetInt("Coins", 0);
+        PlayerPrefs.SetInt("Coins", coin + score);
     }
 
     public static int GetCoins()
@@ -32,11 +29,11 @@ public class ScoreManager : MonoBehaviour
     }
 
 
-    public static void SetMejorDistancia(string nivel,int distancia)
+    public static void SetMejorDistancia(string nivel, int distancia)
     {
 
         int coin = PlayerPrefs.GetInt(nivel, 0);
-        PlayerPrefs.SetInt(nivel,  distancia);
+        PlayerPrefs.SetInt(nivel, distancia);
     }
 
     public static int GetMejorDistancia(string nivel)
@@ -44,21 +41,14 @@ public class ScoreManager : MonoBehaviour
 
         return PlayerPrefs.GetInt(nivel, 0);
     }
-
-
-
-
-
-
-
-    public static void SetUnlockNivel(string nombreNivel,bool bloqueado)
+    public static void SetUnlockNivel(string nombreNivel, bool bloqueado)
     {
 
-        int boolInt = (bloqueado==true) ? 1 : -1;
+        int boolInt = (bloqueado == true) ? 1 : -1;
 
         // 1== bloqueado
         //0== desbloqueado
-        PlayerPrefs.SetInt(nombreNivel,boolInt);
+        PlayerPrefs.SetInt(nombreNivel, boolInt);
     }
 
     public static int GetUnlockNivel(string nombreNivel)

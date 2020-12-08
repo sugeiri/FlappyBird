@@ -10,9 +10,6 @@ public class Obstaculo : MonoBehaviour
     public float originY, originX;
     public float offsetY = 0, offsetX = 0;
     public float wavelength = 0;
-
-
-
     void Start()
     {
         originY = this.transform.position.y;

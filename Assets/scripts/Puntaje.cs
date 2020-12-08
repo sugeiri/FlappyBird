@@ -20,7 +20,7 @@ public class Puntaje : MonoBehaviour
     void Start()
     {
         aa_puntaje = 0;
-        
+
     }
 
     // Update is called once per frame
@@ -39,25 +39,25 @@ public class Puntaje : MonoBehaviour
         else
         if (ControlEscena.GameStatus == "perdiste")
         {
-            monedas.text ="Coins:"+ monedasEnJuego.text;
-            Distancia.text ="Score:"+ distanciaEnJuego.text;
+            monedas.text = "Coins:" + monedasEnJuego.text;
+            Distancia.text = "Score:" + distanciaEnJuego.text;
 
-           
+
 
 
             int str = PlayerPrefs.GetInt("Distancia", 0);
             if (str == 1)
             {
-                MejorDistancia.text ="Best:"+ distan;
-                ScoreManager.SetMejorDistancia(SceneManager.GetActiveScene().name,distan);
+                MejorDistancia.text = "Best:" + distan;
+                ScoreManager.SetMejorDistancia(SceneManager.GetActiveScene().name, distan);
             }
             else
             {
-                
+
                 if (distan > ScoreManager.GetMejorDistancia(SceneManager.GetActiveScene().name))
                 {
-                    MejorDistancia.text = "Best:"+ Distancia.text;
-                    ScoreManager.SetMejorDistancia(SceneManager.GetActiveScene().name,distan);
+                    MejorDistancia.text = "Best:" + Distancia.text;
+                    ScoreManager.SetMejorDistancia(SceneManager.GetActiveScene().name, distan);
                 }
                 else
                 {
